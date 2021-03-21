@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smaslabtes/components/InputDateWidget.dart';
 import 'package:smaslabtes/components/InputEmailWidget.dart';
+import 'package:smaslabtes/components/InputPhoneWidget.dart';
 import 'custom_color_scheme.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'components/InputTextWidget.dart';
@@ -92,7 +93,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             });
                           }),
                       InputEmailWidget(label: "Email", onChange: () {}),
-                      InputDateWidget(label: "Tanggal", onChange: () {})
+                      InputDateWidget(label: "Tanggal Kunjungan", onChange: () {}),
+                      InputPhoneWidget(label: "Nomor Telepon", onChange: () {})
                     ],
                   )),
             ],

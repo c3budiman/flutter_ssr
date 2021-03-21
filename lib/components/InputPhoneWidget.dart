@@ -1,32 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:email_validator/email_validator.dart';
+import 'dart:developer';
 
-class InputEmailWidget extends StatefulWidget {
-  InputEmailWidget({@required this.label, @required this.onChange});
+class InputPhoneWidget extends StatefulWidget {
+  InputPhoneWidget({@required this.label, @required this.onChange});
   final label;
   final Function onChange;
-
+  
   @override
-  _InputEmailWidget createState() => _InputEmailWidget();
+  _InputPhoneWidget createState() => _InputPhoneWidget();
 }
 
-class _InputEmailWidget extends State<InputEmailWidget> {
+class _InputPhoneWidget extends State<InputPhoneWidget> {
   bool isError = false;
-  bool isAlreadyChanged = false;
-
-  void checkEmail(email) {
-    if (EmailValidator.validate(email)) {
-      setState(() {
-        isError = false;
-      });
-      return widget.onChange(email);
-    } else {
-      setState(() {
-        isError = true;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +20,7 @@ class _InputEmailWidget extends State<InputEmailWidget> {
       Align(
         alignment: Alignment.centerLeft,
         child: Container(
-          margin: const EdgeInsets.only(top: 15.0, bottom: 7.0),
+          margin: const EdgeInsets.only(top: 20.0, bottom: 7.0),
           child: Text(widget.label,
               style: GoogleFonts.openSans(
                   color: Colors.black,
@@ -57,15 +43,18 @@ class _InputEmailWidget extends State<InputEmailWidget> {
             labelText: widget.label,
           ),
           onChanged: (text) {
-            // var asd = (text != "");
-            // log('data: $asd');
+            log('data: $text');
             if (text?.isEmpty ?? true) {
               setState(() {
-                isError = true;
+                isError= true;
               });
             } else {
-              checkEmail(text);
+              setState(() {
+                isError= false;
+              });
+              return widget.onChange(text);
             }
+            log('isError: $isError');
           }),
       Visibility(
         visible: isError,
@@ -73,7 +62,7 @@ class _InputEmailWidget extends State<InputEmailWidget> {
           alignment: Alignment.centerLeft,
           child: Container(
             margin: const EdgeInsets.only(top: 10.0, bottom: 7.0),
-            child: Text("harap cek kembali email yang di masukkan.",
+            child: Text("harap cek kembali data yang di masukkan.",
                 style: GoogleFonts.openSans(color: Colors.red, fontSize: 12)),
           ),
         ),
