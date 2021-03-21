@@ -5,6 +5,7 @@ import 'package:smaslabtes/components/InputPhoneWidget.dart';
 import 'custom_color_scheme.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'components/InputTextWidget.dart';
+import 'components/General/Header.dart';
 
 void main() {
   runApp(MyApp());
@@ -65,20 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Container(
-                padding: const EdgeInsets.all(10.0),
-                color: Theme.of(context).colorScheme.blueDark,
-                child: Row(children: <Widget>[
-                  Expanded(
-                    child: Text('Title',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.openSans(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 22)),
-                  )
-                ]),
-              ),
+              Header(title: "Title"),
               Container(
                   padding: const EdgeInsets.only(
                       top: 18.0, bottom: 50.0, left: 20, right: 20),
