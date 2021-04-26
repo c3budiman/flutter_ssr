@@ -28,3 +28,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Test and compile Flutter
         uses: emiliodallatorre/flutter-action@v2
+        with:
+          # Flutter channel
+          channel: "stable"
