@@ -29,5 +29,5 @@ jobs:
         uses: steebchen/flutter@v1.1.0
         
       - name: run flutter test
-        run: flutter test
+        run: flutter-cli test
         shell: bash
