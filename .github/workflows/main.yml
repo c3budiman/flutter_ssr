@@ -25,9 +25,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - name: flutter-cli
+      - name: install dependencies
         uses: steebchen/flutter@v1.1.0
-        
-      - name: run flutter test
-        run: flutter-cli test
-        shell: bash
+        with:
+          args: pub get
+          
+      - name: Run test
+        uses: steebchen/flutter@v1.1.0
+        with:
+          args: test
+          
+      - name: build apk
+        uses: steebchen/flutter@v1.1.0
+        with:
+          args: build apk --release
+      
