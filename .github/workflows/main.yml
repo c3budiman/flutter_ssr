@@ -29,6 +29,8 @@ jobs:
         uses: steebchen/flutter@v1.1.0
         
       - name: Install Flutter
+        uses: britannio/action-install-flutter@v1.0
+      
       
       # Runs a single command using the runners shell
       - name: Test and compile Flutter
